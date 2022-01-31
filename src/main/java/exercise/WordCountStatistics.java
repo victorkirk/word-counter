@@ -4,6 +4,9 @@ import java.util.LongSummaryStatistics;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+/**
+ * Takes a count of words by word lenght and generates some statics based on them.
+ */
 public class WordCountStatistics {
 
 	private Map<Integer, Long> counts;
@@ -14,22 +17,45 @@ public class WordCountStatistics {
 
 	private long max;
 
+	// Ideally I would use lombok for these getters, but to simplify IDE usage I have manually
+	// generated these.
 	public Map<Integer, Long> getCounts() {
 		return counts;
 	}
 
+	/**
+	 * Gets the total number of words.
+	 *
+	 * @return the overall word total.
+	 */
 	public long getTotal() {
 		return total;
 	}
 
+	/**
+	 * Gets the average number of chars per word.
+	 *
+	 * @return the word average character length.
+	 */
 	public double getAverage() {
 		return average;
 	}
 
+	/**
+	 * Gets the largest number of word sizes by character length.
+	 *
+	 * @return the word average character length.
+	 */
 	public long getMax() {
 		return max;
 	}
 
+	/**
+	 * Initialises a new instance and computes some basic stats.
+	 *
+	 * @param counts a map with the number of chars in a word as the key and the number
+	 * of words that occurred for that length as the value.
+	 */
 	public WordCountStatistics(Map<Integer, Long> counts) {
 		if (counts == null) {
 			throw new IllegalArgumentException("counts must not be null");
@@ -49,6 +75,9 @@ public class WordCountStatistics {
 			.sum() / this.total;
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
