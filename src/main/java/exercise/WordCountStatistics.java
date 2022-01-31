@@ -69,6 +69,7 @@ public class WordCountStatistics {
 
 		this.total = stats.getSum();
 		this.max = stats.getMax() != Long.MIN_VALUE ? stats.getMax() : 0;
+		// Average word length is no. words per * word length / total no. words
 		this.average = this.total == 0 ? 0 :
 			(double) counts.entrySet().stream()
 			.mapToLong(e -> e.getValue() * e.getKey())
