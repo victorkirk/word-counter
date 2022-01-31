@@ -5,7 +5,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
- * Takes a count of words by word lenght and generates some statics based on them.
+ * Takes a count of words by word length and generates some statics based on them.
  */
 public class WordCountStatistics {
 
